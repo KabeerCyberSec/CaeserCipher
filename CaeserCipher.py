@@ -1,34 +1,30 @@
 def Encrypt(text, shift):
-    alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     encrypted_text = ""
-
+    alphabets = ["!", "\\", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "0", "1", "2", "3", "4", "5",
+    "6", "7", "8", "9", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~",
+    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u",
+    "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
+    "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " "]
     for alpha in text:
-        if alpha.lower() in alphabets:
-            position = alphabets.index(alpha.lower())
+    	if alpha in alphabets:
+            position = alphabets.index(alpha)
             new_position = (position + shift) % len(alphabets)
-            if alpha.isupper():
-                encrypted_text += alphabets[new_position].upper()
-            else:
-                encrypted_text += alphabets[new_position]
-        else:
-            encrypted_text += alpha
+            encrypted_text += alphabets[new_position]
 
     return encrypted_text
 
 def Decrypt(text, shift):
-    alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     decrypted_text = ""
-
+    alphabets = ["!", "\\", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "0", "1", "2", "3", "4", "5",
+    "6", "7", "8", "9", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~",
+    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u",
+    "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
+    "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " "]
     for alpha in text:
-        if alpha.lower() in alphabets:
-            position = alphabets.index(alpha.lower())
+    	if alpha in alphabets:
+            position = alphabets.index(alpha)
             new_position = (position - shift) % len(alphabets)
-            if alpha.isupper():
-                decrypted_text += alphabets[new_position].upper()
-            else:
-                decrypted_text += alphabets[new_position]
-        else:
-            decrypted_text += alpha
+            decrypted_text += alphabets[new_position]
 
     return decrypted_text
 
